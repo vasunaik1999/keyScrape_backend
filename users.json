@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "name": "Vasu",
+        "email": "v@v.v",
+        "password": "scrypt:32768:8:1$Zv5nhgoZGFvL4U79$600fce959051115da9b6120a65db2ee03a4ee7bcd86c36b9655a0981856faf182bbe8bbe86074b559367afc3ae6f839ce14ec35517c13e0549e24377b02dbaa3"
+    },
+    {
+        "id": 2,
+        "name": "soham",
+        "email": "soham@gmail.com",
+        "password": "scrypt:32768:8:1$MmIrQvlrUJ1qVf0v$0bb717d1eec02a30859d8389c8beb01e97430dd29c72ebf9f57085124009ec7d066d16ef599471e90a4eb6e928dfc377bfa4bd6140198a3411ed28561602ae76"
+    }
+]
