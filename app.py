@@ -137,15 +137,6 @@ def index():
         error_message = f"An error occurred: {str(e)}"
         return jsonify({'error': error_message}), 500
     
-# @app.route('/keywords', methods=['GET'])
-# def get_keywords():
-#     try:
-#         data = read_keywords_file()
-#         return jsonify(data)
-#     except Exception as e:
-#         error_message = f"An error occurred: {str(e)}"
-#         return jsonify({'error': error_message}), 500
-
 @app.route('/keywords', methods=['GET', 'POST'])
 def get_keywords():
     try:
@@ -180,7 +171,7 @@ def get_keywords_by_id(keywords_id):
 def scrape_google(keyword):
     payload = {'q': keyword}
     html = requests.get("https://www.google.com/search", params=payload, headers=headers)
-    html.raise_for_status()  # Raise an HTTPError for bad response status
+    html.raise_for_status()
     data = []
 
     response = html.text
@@ -205,7 +196,7 @@ def scrape_google(keyword):
                 # Send a GET request to the webpage
                 response1 = requests.get(link)
 
-                response1.raise_for_status()  # Raise an HTTPError for bad response status
+                response1.raise_for_status()
 
                 # Parse the HTML content of the webpage using BeautifulSoup
                 soup1 = BeautifulSoup(response1.content, 'html.parser')
@@ -347,19 +338,6 @@ def get_articles():
     except Exception as e:
         error_message = f"An error occurred: {str(e)}"
         return jsonify({'error': error_message}), 500
-
-# @app.route('/article/<int:article_id>', methods=['GET'])
-# def get_article_by_id(article_id):
-#     try:
-#         data = read_json_file('articles.json')
-#         article = next((entry for entry in data if entry.get('id') == article_id), None)
-#         if article:
-#             return jsonify(article)
-#         else:
-#             return jsonify({'error': 'Article not found'}), 404
-#     except Exception as e:
-#         error_message = f"An error occurred: {str(e)}"
-#         return jsonify({'error': error_message}), 500
 
 @app.route('/article/<int:article_id>', methods=['GET'])
 def get_article_by_id(article_id):
